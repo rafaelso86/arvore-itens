@@ -11,12 +11,13 @@ export default function CheckBoxPai() {
 
     const [nomes, setNomes] = useState({});
     const { setCheckPai } = useContext(filhosPai);
+    const baseUrl = window.location.href;
 
     useEffect(() => {
 
         const listarNomes = async () => {
 
-            await axios.get('http://localhost:3000/data.json')
+            await axios.get(`${baseUrl}/data.json`)
                 .then(response => {
                     setNomes(response.data);
 
